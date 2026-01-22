@@ -13,13 +13,13 @@ body{
 }
 body::before{
   content:'';
-  position:fixed; /* fixed so overlay doesn't shift */
+  position:absolute;
   top:0; left:0; width:100%; height:100%;
   background:linear-gradient(-45deg,rgba(13,71,161,0.6),rgba(25,118,210,0.6),rgba(41,182,246,0.6),rgba(13,71,161,0.6));
   background-size:400% 400%;
   animation: gradientBG 15s ease infinite;
   z-index:0;
-  pointer-events:none; /* allow clicks through overlay */
+  pointer-events:none;
 }
 @keyframes gradientBG{0%{background-position:0% 50%;}50%{background-position:100% 50%;}100%{background-position:0% 50%;}}
 
@@ -31,7 +31,12 @@ nav{
   z-index:10;backdrop-filter:blur(5px);
 }
 nav b{font-size:1.3em;}
-nav a{color:white;text-decoration:none;margin-left:20px;font-weight:500;transition:0.3s;}
+nav div{
+  display:flex;
+  gap:25px; /* clean spacing between links */
+  align-items:center;
+}
+nav a{color:white;text-decoration:none;font-weight:500;transition:0.3s;}
 nav a:hover{color:#ffeb3b;text-shadow:0 0 8px #ffeb3b;}
 
 section{display:none;min-height:100vh;padding:150px 20px 50px;position:relative;z-index:1;}
@@ -57,7 +62,7 @@ button:hover{background:#1976d2;box-shadow:0 0 15px #ffeb3b,0 0 25px #ffeb3b ins
 .card-body img{width:80px;height:80px;border-radius:50%;object-fit:cover;border:2px solid #0d47a1;margin-bottom:10px;}
 #qr{margin-top:10px;}
 
-@media(max-width:600px){nav{flex-direction:column;align-items:flex-start;}nav a{margin:8px 0;}.box{padding:20px;}.student-card{width:100%;margin:10px 0;}.card{width:90%;}}
+@media(max-width:600px){nav{flex-direction:column;align-items:flex-start;}nav div{gap:10px;}.box{padding:20px;}.student-card{width:100%;margin:10px 0;}.card{width:90%;}}
 
 @media print{body *{visibility:hidden;}#idcard,#idcard *{visibility:visible;}#idcard{position:absolute;left:0;top:0;width:100%;}}
 </style>
