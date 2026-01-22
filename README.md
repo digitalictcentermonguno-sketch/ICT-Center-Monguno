@@ -89,17 +89,17 @@ button:hover{background:#1976d2;box-shadow:0 0 15px #ffeb3b,0 0 25px #ffeb3b ins
 <label>Category / Program *</label><select id="rcategory" required><option value="">Select</option><option>Out of School</option><option>LGA Staff</option><option>Adult</option></select>
 <label>Date of Birth / Age *</label><input type="date" id="rdob" required>
 <label>NIN *</label><input id="rnin" placeholder="National ID Number" required>
-<label>Phone Number *</label><input id="rphone" placeholder="Phone Number" required>
+<label>Phone Number </label><input id="rphone" placeholder="Phone Number" required>
 <label>Disability</label><input id="rdisability" placeholder="If Any">
-<label>Ward *</label><input id="rward" placeholder="Ward" required>
+<label>Ward </label><input id="rward" placeholder="Ward" required>
 <label>Residential Address *</label><textarea id="raddress" placeholder="Residential Address" required></textarea>
 <label>Guardian / Parent Name *</label><input id="rguardian" placeholder="Guardian Name" required>
 <label>Guardian / Parent Address *</label><textarea id="rguardianaddress" placeholder="Guardian Address" required></textarea>
 <label>Guardian / Parent Phone Number *</label><input id="rguardianphone" placeholder="Guardian Phone" required>
-<label>Email Address *</label><input id="remail" type="email" placeholder="Email Address" required>
+<label>Email Address </label><input id="remail" type="email" placeholder="Email Address" required>
 <label>Upload Photo *</label><input type="file" id="rphoto" accept="image/*" required>
-<label>Username *</label><input id="rusername" placeholder="Username" required>
-<label>Password *</label><input type="password" id="rpassword" placeholder="Password" required>
+<label>Username </label><input id="rusername" placeholder="Username" required>
+<label>Password </label><input type="password" id="rpassword" placeholder="Password" required>
 <button onclick="register()">Register Student</button>
 <p id="rmsg"></p>
 <button onclick="showPage('home')">Back to Home</button>
