@@ -13,14 +13,23 @@ body{
 }
 body::before{
   content:'';
-  position:absolute; top:0; left:0; width:100%; height:100%;
+  position:fixed; /* fixed so overlay doesn't shift */
+  top:0; left:0; width:100%; height:100%;
   background:linear-gradient(-45deg,rgba(13,71,161,0.6),rgba(25,118,210,0.6),rgba(41,182,246,0.6),rgba(13,71,161,0.6));
   background-size:400% 400%;
-  animation: gradientBG 15s ease infinite; z-index:0;
+  animation: gradientBG 15s ease infinite;
+  z-index:0;
+  pointer-events:none; /* allow clicks through overlay */
 }
 @keyframes gradientBG{0%{background-position:0% 50%;}50%{background-position:100% 50%;}100%{background-position:0% 50%;}}
 
-nav{position:fixed;top:0;width:100%;background:rgba(0,0,0,0.7);display:flex;justify-content:space-between;padding:15px 30px;z-index:10;backdrop-filter:blur(5px);}
+nav{
+  position:fixed;top:0;width:100%;
+  background:rgba(0,0,0,0.7);
+  display:flex;justify-content:space-between;
+  padding:15px 30px;
+  z-index:10;backdrop-filter:blur(5px);
+}
 nav b{font-size:1.3em;}
 nav a{color:white;text-decoration:none;margin-left:20px;font-weight:500;transition:0.3s;}
 nav a:hover{color:#ffeb3b;text-shadow:0 0 8px #ffeb3b;}
@@ -56,12 +65,8 @@ button:hover{background:#1976d2;box-shadow:0 0 15px #ffeb3b,0 0 25px #ffeb3b ins
 <body>
 
 <nav>
-
 <img src="logo-light-p.png" alt="ICT Logo"> 
-<h2>
-<b>Borno State Information and Communication Technology Development Agency</b>
-</h2>
-
+<h2><b>Borno State Information and Communication Technology Development Agency</b></h2>
 <div>
 <a href="#" onclick="showPage('home')">Home</a>
 <a href="#" onclick="showPage('register')">Register</a>
@@ -116,7 +121,6 @@ button:hover{background:#1976d2;box-shadow:0 0 15px #ffeb3b,0 0 25px #ffeb3b ins
 <h2>Admin Dashboard</h2>
 <div class="box">
 <button onclick="exportExcel()">Export All Students to Excel</button>
-
 </div>
 <div id="studentCards"></div>
 <div id="idcard"></div>
@@ -129,12 +133,13 @@ button:hover{background:#1976d2;box-shadow:0 0 15px #ffeb3b,0 0 25px #ffeb3b ins
 <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
 <script>
-
 emailjs.init("YOUR_PUBLIC_KEY"); // Replace with your EmailJS public key
-
 localStorage.adminPass="admin123";
 
-function showPage(id){document.querySelectorAll("section").forEach(s=>s.classList.remove("active"));document.getElementById(id).classList.add("active");}
+function showPage(id){
+  document.querySelectorAll("section").forEach(s=>s.classList.remove("active"));
+  document.getElementById(id).classList.add("active");
+}
 
 // REGISTER
 function register(){
